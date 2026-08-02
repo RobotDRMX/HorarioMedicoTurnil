@@ -1,0 +1,14 @@
+{
+  "name": "horariomedicoturnil-tv-pwa",
+  "version": "1.0.0",
+  "description": "Herramientas de build (Babel) para la PWA de Smart TV de HorarioMedicoTurnil. La app en si no requiere Node en produccion, se sirve como archivos estaticos.",
+  "private": true,
+  "scripts": {
+    "transpile:check": "babel app.js --config-file ./babel.config.json --out-file /dev/null && babel sw.js --config-file ./babel.config.json --out-file /dev/null && echo 'ES6 OK: sin sintaxis ES2022+'"
+  },
+  "devDependencies": {
+    "@babel/cli": "^8.0.4",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2"
+  }
+}

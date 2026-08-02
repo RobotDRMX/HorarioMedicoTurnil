@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HorarioMedicoTurnil Wear</string>
+    <string name="servicio_activo">Servicio BLE Activo - HorarioMedicoTurnil</string>
+</resources>

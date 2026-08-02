@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'self' ws://localhost:3000 wss: https:; img-src 'self' data:; media-src 'self'; style-src 'self'; script-src 'self';" />
+  <title>HorarioMedicoTurnil - Sala de Espera</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#2a5643" />
+</head>
+<body>
+  <div class="estado-simulacion" id="estado-simulacion" hidden></div>
+  <main class="dashboard" id="dashboard">
+    <!-- Tarjeta 1: Turno actual -->
+    <section class="card" id="card-turno" tabindex="0" data-index="0" aria-label="Turno actual">
+      <h2 class="label">Turno Actual</h2>
+      <p class="value" id="valor-turno">--</p>
+      <p class="sub-value" id="valor-ritmo">Ritmo cardiaco: -- bpm</p>
+      <p class="sub-value" id="valor-oxigenacion">Oxigenacion (SpO2): --%</p>
+      <p class="sub-value" id="valor-temperatura">Temperatura: --°C</p>
+      <p class="badge-prioridad" id="badge-prioridad" hidden>PRIORIDAD ALTA</p>
+    </section>
+
+    <!-- Tarjeta 2: Tiempo de espera -->
+    <section class="card" id="card-tiempo" tabindex="0" data-index="1" aria-label="Tiempo de espera">
+      <h2 class="label">Tiempo de Espera (min)</h2>
+      <p class="value" id="valor-tiempo">--</p>
+    </section>
+
+    <!-- Tarjeta 3: Proximos turnos -->
+    <section class="card" id="card-proximos" tabindex="0" data-index="2" aria-label="Proximos turnos">
+      <h2 class="label">Proximos Turnos</h2>
+      <ul class="proximos-list" id="lista-proximos">
+        <li>--</li>
+        <li>--</li>
+        <li>--</li>
+      </ul>
+    </section>
+
+    <!-- Tarjeta 4: Historial de los ultimos 10 turnos -->
+    <section class="card" id="card-historial" tabindex="0" data-index="3" aria-label="Historial de turnos">
+      <h2 class="label">Historial (ultimos 10)</h2>
+      <ul class="historial-list" id="lista-historial">
+        <li>--</li>
+      </ul>
+    </section>
+
+    <!-- Tarjeta 5: Video informativo (ancho completo) -->
+    <section class="card card-video" id="card-video" tabindex="0" data-index="4" aria-label="Video informativo">
+      <h2 class="label">Informacion</h2>
+      <div class="video-wrapper" id="video-wrapper">
+        <img src="assets/fallback.svg" alt="Informacion HorarioMedicoTurnil" id="video-fallback" class="video-fallback" />
+      </div>
+    </section>
+  </main>
+
+  <script src="vendor/socket.io.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

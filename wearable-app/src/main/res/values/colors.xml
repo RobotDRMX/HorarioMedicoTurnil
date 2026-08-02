@@ -1,0 +1,8 @@
+<resources>
+    <!-- Paleta oficial HorarioMedicoTurnil -->
+    <color name="texto_principal">#2A5643</color>
+    <color name="texto_secundario">#3A674B</color>
+    <color name="acento">#5B8A5F</color>
+    <color name="tarjeta">#8CBD7F</color>
+    <color name="fondo">#D8FFAD</color>
+</resources>

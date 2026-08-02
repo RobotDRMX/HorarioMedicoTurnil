@@ -1,0 +1,233 @@
+/* HorarioMedicoTurnil TV - Estilos 10-Foot
+   Paleta obligatoria:
+   #2a5643 texto principal / bordes
+   #3a674b texto secundario
+   #5b8a5f acentos / botones / foco (glow)
+   #8cbd7f fondo de tarjetas
+   #d8ffad fondo general de la app
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Safe zone TV: sin scroll */
+}
+
+body {
+  background-color: #d8ffad;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  padding: 5vh 5vw; /* Safe zone */
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+/* El video ocupa el ancho completo en su propia fila (ver GRID_POS en app.js). */
+.card-video {
+  grid-column: 1 / span 2;
+}
+
+.card {
+  background-color: #8cbd7f;
+  color: #2a5643;
+  border-radius: 16px;
+  padding: 2.5vh 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  outline: none;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+/* Foco activo: visible a distancia (requisito critico D-pad) */
+.card:focus,
+.card.focused {
+  outline: 4px solid #2a5643;
+  box-shadow: 0 0 20px #5b8a5f;
+  transform: scale(1.02);
+}
+
+.label {
+  color: #3a674b;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5vh;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.value {
+  color: #2a5643;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sub-value {
+  color: #3a674b;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1vh;
+}
+
+.badge-prioridad {
+  margin-top: 1vh;
+  padding: 0.4rem 1.2rem;
+  background-color: #2a5643;
+  color: #d8ffad;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: 999px;
+  letter-spacing: 1px;
+}
+
+.proximos-list {
+  list-style: none;
+  width: 100%;
+  font-size: 2rem;
+  color: #2a5643;
+  font-weight: 600;
+}
+
+.proximos-list li {
+  padding: 0.5vh 0;
+  border-bottom: 1px solid #5b8a5f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proximos-list li:last-child {
+  border-bottom: none;
+}
+
+.proximos-list .etiqueta-prioridad {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #d8ffad;
+  background-color: #2a5643;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  letter-spacing: 1px;
+}
+
+.historial-list {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  font-size: 1.1rem;
+  color: #2a5643;
+  font-weight: 600;
+}
+
+.historial-list li {
+  padding: 0.6vh 0.4rem;
+  border-bottom: 1px solid #5b8a5f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.historial-list li:last-child {
+  border-bottom: none;
+}
+
+.historial-list .historial-detalle {
+  font-size: 0.85rem;
+  color: #3a674b;
+  font-weight: 500;
+}
+
+.historial-list .etiqueta-prioridad {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #d8ffad;
+  background-color: #2a5643;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.card-video {
+  padding: 1.5vh 1vw;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5b8a5f;
+}
+
+.video-wrapper video,
+.video-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Alerta de umbral de tiempo (>= 900s) */
+.card.alerta .value {
+  color: #2a5643;
+  animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Aviso de simulacion detenida (movil y/o wearable), reportado por el
+   servidor via el evento 'simEstado'. Oculto mientras ambos emisores
+   esten activos o no hayan reportado su estado todavia. */
+.estado-simulacion {
+  position: fixed;
+  top: 1.5vh;
+  right: 2vw;
+  background-color: #2a5643;
+  color: #d8ffad;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+/* Boton generico (si se necesita en pantallas futuras) */
+.btn {
+  background-color: #5b8a5f;
+  color: #d8ffad;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 4px solid #2a5643;
+  box-shadow: 0 0 20px #5b8a5f;
+}

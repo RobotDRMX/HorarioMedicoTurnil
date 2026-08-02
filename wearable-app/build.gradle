@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.application' version '8.11.1'
+    id 'org.jetbrains.kotlin.android' version '1.9.22'
+}
+
+android {
+    namespace 'com.horariomedicoturnil.wear'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.horariomedicoturnil.wear"
+        minSdk 28 // Minimo requerido por Wear OS
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation 'androidx.wear.compose:compose-material:1.2.1'
+    implementation platform('androidx.compose:compose-bom:2024.02.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.material:material'
+    implementation 'com.google.android.gms:play-services-wearable:18.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+
+    // Cliente Socket.IO para la sincronizacion opcional por WiFi (demo, ver
+    // BluetoothLeService.conectarAlServidor). La emision BLE NOTIFY sigue
+    // siendo la via "oficial" que pide la rubrica.
+    implementation('io.socket:socket.io-client:2.1.1') {
+        exclude group: 'org.json', module: 'json'
+    }
+}

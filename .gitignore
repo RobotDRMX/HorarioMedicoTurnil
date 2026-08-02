@@ -1,0 +1,49 @@
+# Secretos y variables de entorno
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*apikey*
+*api_key*
+*secret*
+*credentials*
+*service-account*
+google-services.json
+GoogleService-Info.plist
+key.properties
+local.properties
+
+# Node.js (server)
+node_modules/
+npm-debug.log*
+
+# Flutter (mobile-app)
+mobile-app/.dart_tool/
+mobile-app/.flutter-plugins
+mobile-app/.flutter-plugins-dependencies
+mobile-app/.packages
+mobile-app/build/
+mobile-app/android/.gradle/
+mobile-app/android/app/build/
+mobile-app/ios/Pods/
+mobile-app/ios/Flutter/Flutter.podspec
+
+# Android / Wear OS (wearable-app)
+wearable-app/build/
+wearable-app/.gradle/
+*.apk
+*.aab
+
+# PWA (tv-pwa)
+tv-pwa/dist/
+
+# General
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/

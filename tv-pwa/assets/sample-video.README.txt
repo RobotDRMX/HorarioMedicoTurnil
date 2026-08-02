@@ -1,0 +1,16 @@
+Este directorio debe contener "sample-video.mp4" (el video informativo de la Tarjeta 4).
+
+No se genera un binario de video en este repositorio (no hay herramientas de codificacion
+de video disponibles en el entorno de generacion de codigo). El codigo de la PWA ya maneja
+la ausencia/fallo del archivo: si "sample-video.mp4" no existe o no puede reproducirse,
+el <video> dispara el evento "error" y la Tarjeta 4 muestra automaticamente "fallback.svg".
+
+Para generar un video de prueba valido (5 segundos, 1080p, H.264, faststart, < 5MB),
+ejecuta desde la raiz del proyecto (ver tambien README.md):
+
+  ffmpeg -f lavfi -i color=c=0x2a5643:s=1920x1080:d=5 \
+         -vf "drawtext=text='HorarioMedicoTurnil':fontcolor=0xd8ffad:fontsize=72:x=(w-text_w)/2:y=(h-text_h)/2" \
+         -c:v libx264 -profile:v high -pix_fmt yuv420p -movflags +faststart \
+         tv-pwa/assets/sample-video.mp4
+
+Coloca el archivo resultante en esta misma carpeta con el nombre exacto "sample-video.mp4".
