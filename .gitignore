@@ -48,3 +48,6 @@ Thumbs.db
 *.log
 .idea/
 .vscode/
+
+# Capturas sueltas de depuracion (no son parte del proyecto)
+/_check_ip.png
