@@ -44,10 +44,21 @@ En esta sesión generé o actualicé: `RUBRICA_AUTOEVALUACION.md`,
   comandos reales que corrí yo (`flutter --version`, etc.) — no son una
   redacción final que voy a entregar sin revisar.
 - Explícitamente no usé IA para: generar capturas de pantalla, resultados
-  de pruebas que no he ejecutado, un tester externo, un video demo, ni las
-  respuestas de mi Bitácora de Proceso. Esos campos los dejé como espacios
-  en blanco (`___`, checkboxes vacíos) porque inventarlos sería "IA como
-  evidencia falsa" (NO 3 de la política), y eso no está permitido.
+  de pruebas que no he ejecutado, ni un tester externo o un video demo. Esos
+  campos los dejé como espacios en blanco (`___`, checkboxes vacíos) porque
+  inventarlos sería "IA como evidencia falsa" (NO 3 de la política), y eso
+  no está permitido.
+- Caso especial — `docs/BITACORA.md`: le pedí a Claude que intentara un
+  primer borrador de mi bitácora de la práctica de integración de los 3
+  dispositivos, aclarándole yo mismo que lo iba a revisar y corregir antes
+  de entregarlo. El borrador está grounded en incidentes reales que sí
+  ocurrieron durante el desarrollo (el bug de la tarjeta de turno en blanco
+  por caída de socket, etc.), pero **todavía no lo he reescrito con mis
+  propias palabras ni verificado que refleje exactamente cómo yo lo viví**.
+  Mientras no haga eso, `docs/BITACORA.md` no cuenta como mi bitácora real
+  — sigue siendo un borrador de apoyo, no un entregable. La plantilla vacía
+  para las siguientes prácticas sigue en `docs/BITACORA_TEMPLATE.md`, sin
+  ningún contenido generado por IA.
 
 Antes de entregar, me falta leer cada documento que generé con ayuda de
 Claude, verificar personalmente al menos una muestra de las citas
