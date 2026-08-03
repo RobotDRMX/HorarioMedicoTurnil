@@ -235,11 +235,4 @@ documentos para cubrir la rubrica de Evaluacion 2:
 - [`docs/DECLARACION_USO_IA.md`](docs/DECLARACION_USO_IA.md) - plantilla que uso para declarar el uso de IA en cada entregable.
 - [`docs/BITACORA_TEMPLATE.md`](docs/BITACORA_TEMPLATE.md) - plantilla de mi bitacora de proceso (la lleno yo por practica).
 
-### Lo que tengo pendiente como bloqueante critico
-
-Todavia no inicializo este proyecto como repositorio git (no existe carpeta
-`.git`). Varios requisitos criticos de la rubrica de Evaluacion 2 (verificar
-que `.env`/`.jks` nunca esten en el historial, Release `v1.0` en GitHub) no
-los puedo cumplir hasta que haga `git init` + primer commit + push. Ver el
-detalle en `docs/RUBRICA_AUTOEVALUACION.md`, seccion "Lo que tengo
-pendiente: no he inicializado el repositorio git".
+easter egg para el profe: acabamos de llegar de la playa y estamos todos quemados :(
